@@ -1,6 +1,8 @@
+
+--comment: init eventuate tables
+
 DROP TABLE IF EXISTS eventuate.message CASCADE;
 DROP TABLE IF EXISTS eventuate.received_messages CASCADE;
-DROP TABLE IF EXISTS eventuate.offset_store CASCADE;
 
 CREATE TABLE eventuate.message
 (

@@ -1,4 +1,4 @@
-CREATE SCHEMA eventuate;
+
 
 DROP Table IF Exists eventuate.saga_instance_participants;
 DROP Table IF Exists eventuate.saga_instance;
@@ -23,19 +23,19 @@ CREATE TABLE eventuate.saga_instance
     end_state       BOOLEAN,
     compensating    BOOLEAN,
     failed          BOOLEAN,
-    saga_data_type  VARCHAR(1000) NOT NULL,
-    saga_data_json  VARCHAR(1000) NOT NULL,
+    saga_data_type  TEXT NOT NULL,
+    saga_data_json  TEXT NOT NULL,
     PRIMARY KEY (saga_type, saga_id)
 );
 
-CREATE TABLE  eventuate.saga_lock_table
+create table eventuate.saga_lock_table
 (
     target    VARCHAR(100) PRIMARY KEY,
     saga_type VARCHAR(255) NOT NULL,
     saga_Id   VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE eventuate.saga_stash_table
+create table eventuate.saga_stash_table
 (
     message_id      VARCHAR(100) PRIMARY KEY,
     target          VARCHAR(100)  NOT NULL,
